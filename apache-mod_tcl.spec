@@ -6,7 +6,7 @@
 Summary:	Mod_tcl is a DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	1.0.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Servers
 License:	Apache License
 URL:		http://tcl.apache.org/mod_tcl/
