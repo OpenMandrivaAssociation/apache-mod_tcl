@@ -6,7 +6,7 @@
 Summary:	DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	1.0.1
-Release:	%mkrel 7
+Release:	%mkrel 8
 Group:		System/Servers
 License:	Apache License
 URL:		http://tcl.apache.org/mod_tcl/
