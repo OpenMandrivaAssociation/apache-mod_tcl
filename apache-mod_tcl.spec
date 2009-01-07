@@ -6,7 +6,7 @@
 Summary:	DSO module for the apache web server
 Name:		apache-%{mod_name}
 Version:	1.0.1
-Release:	%mkrel 9
+Release:	%mkrel 10
 Group:		System/Servers
 License:	Apache License
 URL:		http://tcl.apache.org/mod_tcl/
@@ -14,6 +14,7 @@ Source0:	%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Source2:	test_script.tm
 Patch0:		mod_tcl-fix-wild_name
+Patch1:		mod_tcl-1.0.1-format_not_a_string_literal_and_no_format_arguments.diff
 Requires:	tcl >= 8.4.5
 BuildRequires:	tcl >= 8.4.5
 BuildRequires:	tcl-devel >= 8.4.5
@@ -45,7 +46,8 @@ scripts can not provide.
 %prep
 
 %setup -q -n %{mod_name}-%{version}
-%patch0
+%patch0 -p0
+%patch1 -p0
 
 cp %{SOURCE2} test_script.tm
 cp %{SOURCE1} %{mod_conf}
