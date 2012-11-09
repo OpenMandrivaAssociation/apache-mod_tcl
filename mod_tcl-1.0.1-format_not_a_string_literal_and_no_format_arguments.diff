@@ -1,0 +1,11 @@
+--- tcl_cmds.c	2009-01-07 10:49:03.000000000 +0100
++++ tcl_cmds.c.oden	2009-01-07 10:50:27.000000000 +0100
+@@ -1756,7 +1756,7 @@ int cmd_ap_log_error(ClientData cd, Tcl_
+ 	Tcl_GetIntFromObj(interp, objv[1], &i);
+ 	Tcl_GetIntFromObj(interp, objv[2], &j);
+ 	
+-	ap_log_error(APLOG_MARK, i, j, _r->server, Tcl_GetString(objv[3]));
++	ap_log_error(APLOG_MARK, i, j, _r->server, "%s", Tcl_GetString(objv[3]));
+ 	
+ 	return TCL_OK;
+ }

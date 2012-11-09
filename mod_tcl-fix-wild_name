@@ -1,0 +1,48 @@
+--- tcl_cmds.c.orig	2003-03-02 02:32:20.000000000 -0400
++++ tcl_cmds.c	2003-03-02 03:09:14.000000000 -0400
+@@ -941,28 +941,37 @@
+ {
+ 	Tcl_Obj *obj = Tcl_NewObj();
+ 	int i;
+-	char **a = (char**) _r->server->names->elts;
++	apr_array_header_t *names;
++	names = _r->server->names;
++        if (names) {
++	  char **a = (char**) _r->server->names->elts;
+ 	
+-	for (i = 0; i < _r->server->names->nelts; i++) {
++	  for (i = 0; i < _r->server->names->nelts; i++) {
+ 		Tcl_ListObjAppendElement(interp, obj, Tcl_NewStringObj(a[i], -1));
+-	}
++	  }
+ 	
+-	return obj;
++	  return obj;
++        } else return Tcl_NewStringObj("(NULL)",-1);
+ }
+ 
+ static Tcl_Obj* r_server_wild_names(void)
+ {
+ 	Tcl_Obj *obj = Tcl_NewObj();
+ 	int i;
+-	char **a = (char**) _r->server->wild_names->elts;
++	apr_array_header_t *names;
++	names = _r->server->wild_names;
++        if (names) {
++	  char **a = (char**) _r->server->wild_names->elts;
+ 	
+-	for (i = 0; i < _r->server->wild_names->nelts; i++) {
++	  for (i = 0; i < _r->server->wild_names->nelts; i++) {
+ 		Tcl_ListObjAppendElement(interp, obj, Tcl_NewStringObj(a[i], -1));
+-	}
++	  }
+ 	
+-	return obj;
++	  return obj;
++        } else return Tcl_NewStringObj("(NULL)",-1);
+ }
+ 
++
+ static Tcl_Obj* r_server_limit_req_line(void)
+ {
+ 	return Tcl_NewIntObj(_r->server->limit_req_line);
