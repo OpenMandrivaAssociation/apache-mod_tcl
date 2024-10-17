@@ -9,7 +9,7 @@ Version:	1.0.1
 Release:	%mkrel 15
 Group:		System/Servers
 License:	Apache License
-URL:		http://tcl.apache.org/mod_tcl/
+URL:		https://tcl.apache.org/mod_tcl/
 Source0:	%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Source2:	test_script.tm
